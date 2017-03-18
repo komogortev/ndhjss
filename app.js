@@ -9,9 +9,6 @@ var router = express.Router();
 var db = require('./model/db');
 
 
-
-
-
 //init app
 var app = express();
 /*-----------------------------------------*/
