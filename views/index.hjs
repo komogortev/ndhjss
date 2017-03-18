@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <nav class="side-frame dock-right menu">
+        <ul class="unstyled">
+            <li>linkedin
+            <li>contact
+        </ul>
+    </nav>
+
+    <div class="site-wrapper main-frame">
+
+        <a href="javascript:;" class=" menu-trigger is-active">
+            <i class="icon-default icon-menu"></i>
+            Menu
+        </a>
+
+        <section class="slide ">
+
+            <div class="content-box">
+                <div class="figure-wrapper">
+                    <img src="/images/mike-david.jpg">
+                </div>
+
+                <div class="carousel-wrapper">
+                    <div class="carousel">
+                        <ul class="unstyled slide-container">
+                            <li class="is-active">
+                                <i class="js-action icon-custom icon-experience nav-tab"></i>
+                                Over 5 years of experience  developing web applications and  e-commerce solutions.
+                                Extensive knowledge of HTML5  (Bootstrap, Boilerplate)/ CSS (SASS, LESS)/ JavaScript (jQuery, Grunt).
+                            <li><i class="js-action icon-custom icon-experience nav-tab"></i>
+                                Experience working in Node / ASP / C# / PHP environments and revision control systems TFS / GitHub.</li>
+                            <li><i class="js-action icon-custom icon-experience nav-tab"></i>
+                                Performance optimization, responsive and semantic code, browser interoperability.</li>
+                            <li><i class="js-action icon-custom icon-experience nav-tab"></i>
+                                Experienced user of  Adobe graphic software Photoshop/Illustrator,, Premiere/After Effect, InDesign</li>
+                            <li><i class="js-action icon-custom icon-experience nav-tab"></i>
+                                Design and integrate ecommerce web sites using HTML, CSS, Javascript, jQuery for interactivity,
+                                integrate the mock-ups with e-commerce platform developed internally and technical supports after
+                                customers on using the k-eCommerce solution (platform developed by kCentric.NET)</li>
+                            <li><i class="js-action icon-custom icon-experience nav-tab"></i>
+                                Design sites that are functional, have a clean look, and provide clear and friendly navigation
+                                and easy accessibility and better User Experience.</li>
+                            <li><i class="js-action icon-custom icon-experience nav-tab"></i>
+                                Create web applications, interactive forms, and asynchronous responsive page layouts.</li>
+                            <li><i class="js-action icon-custom icon-experience nav-tab"></i>
+                                Validate usability on different browsers, and troubleshoot code where required.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slide ">
+            <div class="content-box">
+                <form id="contact_me_form" action="/contact" method="post" >
+                    <div class="input-group">
+                      <label class="input-group-addon" id="name-label">Name</label>
+                      <input id="name" name="name" type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1" >
+                      <span class="input-group-addon" id="name_error" style="display:none;">Name is Required</span>
+                    </div>
+                    <div class="input-group">
+                      <label class="input-group-addon" id="name-label">Email</label>
+                      <input name="email" id="email" type="email" class="form-control" placeholder="Email (required)" aria-describedby="basic-addon2">
+                      <span class="input-group-addon" id="email_error" style="display:none;">Email is Required</span>
+                    </div>
+                    <div class="input-group">
+                      <label class="input-group-addon" id="name-label">Message</label>
+                      <textarea name="message" id="message" class="form-control" placeholder="Message (Inquiry? , Freelance     Work? , or Just to Say Hi...)" aria-describedby="basic-addon3"></textarea>
+                      <span class="input-group-addon" id="message_error" style="display:none;">Message is Required</span>
+                    </div>
+                    <div class="input-group">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="hidden">
+            <h1>{{ title }}</h1>
+            <p>Welcome to {{ title }}</p>
+
+            {{teamdata}}
+
+            <ul>
+                {{#teams}}
+                    <li>{{country}}</li>
+                {{/teams}}
+            </ul>
+
+            <p>.end</p>
+        </section>
+    </div>
+
+  </body>
+</html>

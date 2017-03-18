@@ -1,0 +1,44 @@
+//*VARIABLES*/
+$primary-color: #111;
+$inverted-primary: #f1f1f1;
+$secondary-color: #c00;
+$inverted-secondary: #5d7cdd;
+
+$bg-fog: rgba(255,255,255,.7);
+$bg-muted: lighten($primary-color, 50%);
+$bg-primary: $primary-color;
+$bg-secondary: $secondary-color;
+
+$basic-font-size: 14px;
+$gradation-step: 10%;
+
+
+$size-xlarge: 1200px;
+$size-large:  980px;
+$size-medium: 768px;
+$size-small:  400px;
+$size-xsmall: 320px;
+
+
+//*MIXINS*/
+@mixin default-box {
+  display: block;
+  margin: 0;
+  padding:0;
+  font-size: $basic-font-size;
+  box-sizing: border-box;
+}
+
+//*FUNCTIONS*/
+//@Todo add Function for converting a px based font-size to rem.
+
+@function step2percent($step){
+  @return ($step * $gradation-step);
+}
+
+@function darkenBy($base, $step) {
+  @return darken($base, step2percent($step));
+}
+
+
+

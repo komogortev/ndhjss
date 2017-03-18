@@ -1,0 +1,374 @@
+@import "_variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+//*LAYOUT*/
+html,
+body {
+  @include default-box;
+  font: $basic-font-size "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.site-wrapper {
+  @include default-box;
+  width: 100%;
+  position:relative;
+}
+
+.main-frame {
+  position: relative;
+}
+
+.side-frame {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  &.dock-top {
+    bottom: auto;
+    transform: translate(0, -100%);
+  }
+  &.dock-right {
+     left: auto;
+     transform: translate(100%,0);
+  }
+  &.dock-bottom {
+    top: auto;
+    transform: translate(0, 100%);
+  }
+  &.dock-left {
+    right: auto;
+    transform: translate(-100%, 0);
+  }
+
+  &.shifted {
+    transform: translate(0, 0);
+  }
+}
+
+ul {
+  @include default-box;
+
+  &.unstyled {
+    list-style: none;
+  }
+}
+
+a {
+  color: $secondary-color;
+}
+
+section {
+  @include default-box;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  &:nth-child(1) {
+    background: darkenBy($inverted-secondary, 1);
+  }
+  &:nth-child(2) {
+    background: darkenBy($inverted-secondary, 2);
+    background: url(../images/mtl-dtwn.jpg) no-repeat center center;
+    background-size: cover;
+  }
+  &:nth-child(3) {
+    background: darkenBy($inverted-secondary, 3);
+    background: url(../images/mtl-cafe.jpg) no-repeat center center;
+    background-size: cover;
+  }
+
+  &.slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .content-box {
+      @include default-box;
+      margin: 10px;
+      max-width: 100%;
+      max-height: 100%;
+
+    }
+  }
+
+}
+
+//*ELEMENTS*/
+.btn {
+  @include default-box;
+  padding: 4px  10px;
+  color: $primary-color;
+  background: $bg-muted;
+  border: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: lighten($primary-color, 20%);
+    background: lighten($bg-muted, 20%);
+  }
+
+  &.btn-primary {
+    color: $inverted-primary;
+    background: $bg-primary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: lighten($inverted-primary, 20%);
+      background: lighten($bg-primary, 20%);
+    }
+  }
+
+  &.btn-secondary {
+    color: $inverted-secondary;
+    background: $bg-secondary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: lighten($inverted-secondary, 20%);
+      background: lighten($bg-secondary, 20%);
+    }
+  }
+}
+
+.menu-trigger {
+  @include default-box;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 4px;
+  border: 1px solid $primary-color;
+  border-radius: 2px;
+  color: $primary-color;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 1;
+
+  .icon-default {
+    font-size: 16px;
+    margin: 0 2px -2px;
+  }
+
+}
+
+nav.menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  //1st lvl
+  > ul {
+
+    //2nd lvl
+    ul {
+      @include default-box;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 200px;
+      height: 100vh;
+      padding: 100px 10px 10px;
+      margin: -10px -10px 0 auto;
+      background: silver;
+      transform: translate(calc(100% + 10px), 0);
+    }
+
+    a.is-active  ul {
+      transform: translate(0, 0);
+
+    }
+  }
+}
+
+//*ICONS*/
+.icon-default {
+  @include default-box;
+  display: inline-block;
+}
+
+.icon-custom {
+  @include default-box;
+}
+
+.icon-menu {
+  position: relative;
+  width: 1.25em;
+  height: 1em;
+
+  &::before,
+  &::after{
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+  }
+  &::before {
+    height: 100%;
+    border: .22em solid $primary-color;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+    box-sizing: border-box;
+    top: 0;
+  }
+
+  &::after {
+    height: auto;
+    border-top: .22em solid $primary-color;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+}
+
+.icon-experience {
+  width: 40px;
+  height: 60px;
+  border:1px solid red;
+}
+
+
+//*CONTENT*/
+.figure-wrapper {
+  @include default-box;
+  position: absolute;
+  left: 30%;
+  bottom: 0;
+  height: 90%;
+  transform: translate(-50%, 0);
+
+  img {
+    display:inline-block;
+     width: auto;
+     height: 100%;
+  }
+
+}
+
+.carousel-wrapper {
+
+}
+
+.carousel {
+  @include default-box;
+  padding: 10px;
+  width: 300px;
+  height: 180px;
+  position: relative;
+  background: $bg-fog;
+
+  ul.slide-container {
+    width: 100%;
+    height: 100%;
+
+    > li {
+      @include default-box;
+      display:none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      font-size: 14px;
+
+      &.is-active{
+        display: block;
+      }
+
+      .nav-tab {
+        position: absolute;
+        top:0;
+        left:0;
+        transform: translate(0, -100%);
+      }
+      &:nth-child(2) .nav-tab{
+        transform: translate(100%, -100%);
+      }
+      &:nth-child(3) .nav-tab{
+        transform: translate(200%, -100%);
+      }
+      &:nth-child(4) .nav-tab{
+          transform: translate(300%, -100%);
+      }
+      &:nth-child(5) .nav-tab{
+            transform: translate(400%, -100%);
+      }
+    }
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+}
+
+//*CONTACT FORM*/
+form {
+  @include default-box;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: $bg-fog;
+  min-width: $size-xsmall;
+
+  .input-group {
+    @include default-box;
+    width: 100%;
+    margin: 0 auto 10px;
+
+    &:last-of-type {
+      margin: 0 auto;
+    }
+  }
+
+  label {
+    display: none;
+  }
+
+  input[type=text],
+  input[type=email],
+  textarea,
+  button[type=submit] {
+    @include default-box;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 4px;
+    resize: none;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
