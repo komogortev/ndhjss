@@ -5,7 +5,7 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 var transporter = nodemailer.createTransport(
-    smtpTransport('smtps://uname%40gmail.com:password@smtp.gmail.com')
+    smtpTransport('smtps://komogortev%40gmail.com:cKe8dfwU*@smtp.gmail.com')
 );
 
 
